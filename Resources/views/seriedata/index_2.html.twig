@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="page-header">
+            <h1>Highcharts
+                <small>
+                    <a href="http://www.highcharts.com/demo/grid-light"> Grid-light !</a>
+                </small>
+            </h1>
+        </div>
+        <div class="col col-sm-12">
+            <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/asset/js/jquery.js') }}"></script>
+    <script src="{{ asset('bundles/highcharts/js/exporting.js') }}"></script>
+    <script src="{{ asset('bundles/highcharts/js/highcharts.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            var series = $.parseJSON('{{ series|e("js") }}');
+
+            var chart = $('#container').highcharts({
+
+                // afficher format graphique
+                chart: {
+                    type: 'area'
+                },
+                // Titre attribuer  au graphique
+                title: {
+                    text: 'US and USSR nuclear stockpiles'
+                },
+
+
+                tooltip: {
+                    pointFormat: '{series.name} produced <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
+                },
+                plotOptions: {
+                    area: {
+                        pointStart: 1940,
+                        marker: {
+                            enabled: false,
+                            symbol: 'circle',
+                            radius: 2,
+                            states: {
+                                hover: {
+                                    enabled: true
+                                }
+                            }
+                        }
+                    }
+                },
+                series: series
+            });
+
+
+
+        });
+
+    </script>
+
+
+{% endblock %}

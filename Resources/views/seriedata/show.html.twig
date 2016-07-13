@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Seriedata</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ seriedatum.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ seriedatum.name }}</td>
+            </tr>
+            <tr>
+                <th>Data</th>
+                <td>{{ seriedatum.data }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hightcharts_serial_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('hightcharts_serial_edit', { 'id': seriedatum.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
