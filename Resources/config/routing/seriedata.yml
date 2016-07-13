@@ -1,0 +1,34 @@
+hightcharts_serial_just_index:
+    path:     /index_1
+    defaults: { _controller: "HighchartsBundle:Seriedata:index" }
+    methods:  GET
+
+hightcharts_serial_index:
+    path:     /index_2
+    defaults: { _controller: "HighchartsBundle:Seriedata:forJsonIndex" }
+    methods:  GET
+
+hightcharts_serial_json:
+    path:     /jsonDataChart
+    defaults: { _controller: "HighchartsBundle:Seriedata:JsonChartShow" }
+    methods:  GET
+
+hightcharts_serial_show:
+    path:     /{id}/show
+    defaults: { _controller: "HighchartsBundle:Seriedata:show" }
+    methods:  GET
+
+hightcharts_serial_new:
+    path:     /new
+    defaults: { _controller: "HighchartsBundle:Seriedata:new" }
+    methods:  [GET, POST]
+
+hightcharts_serial_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HighchartsBundle:Seriedata:edit" }
+    methods:  [GET, POST]
+
+hightcharts_serial_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HighchartsBundle:Seriedata:delete" }
+    methods:  DELETE

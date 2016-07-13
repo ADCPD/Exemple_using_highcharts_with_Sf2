@@ -1,0 +1,7 @@
+highcharts_hightcharts_serial:
+    resource: "@HighchartsBundle/Resources/config/routing/seriedata.yml"
+    prefix:   /serial
+
+highcharts_homepage:
+    path:     /
+    defaults: { _controller: 'HighchartsBundle:Default:index' }
